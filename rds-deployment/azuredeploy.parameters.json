@@ -9,7 +9,7 @@
       "value": "GEN-PASSWORD"
     },
     "adminUsername": {
-      "value": "cloudadmin1"
+      "value": "cloudadmin2"
     },
     "dnsLabelPrefix": {
       "value": "{enter_unique_external_fqdn_prefix_here (example:%resourceGroupName%)}"
