@@ -20,7 +20,7 @@
             "metadata": {
                 "description": "The name of the domain admin. Exclusion list: 'administrator'."
             },
-            "defaultValue": "cloudadmin"
+            "defaultValue": "cloudadmin2"
         },
         "adminPassword": {
             "type": "securestring",
