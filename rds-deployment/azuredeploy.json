@@ -81,10 +81,10 @@
         "rdshVmName": "[concat(variables('vmPrefix'), 'rdsh-')]",
         "vnet": {
             "name": "vnet",
-            "addressRange": "10.0.0.0/16",
+            "addressRange": "10.0.0.0/24",
             "subnet": {
                 "name": "subnet",
-                "addressRange": "10.0.0.0/24"
+                "addressRange": "10.0.0.0/26"
             },
             "nsgName": "rdsNsg"
         },
