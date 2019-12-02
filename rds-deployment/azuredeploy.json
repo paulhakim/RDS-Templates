@@ -398,7 +398,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')))]"
                     }
                 }
             },
@@ -570,8 +570,8 @@
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
                         "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob,variables('uniqueStorageAccountContainerName'),'/','gw-vm-os-disk.vhd')]"
+                        "managedDisk": {
+                            "storageAccountType":"Standard_LRS"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
@@ -583,6 +583,12 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('gatewayNicName'))]"
                         }
                     ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')))]"
+                    }
                 }
             },
             "resources": [
@@ -648,8 +654,8 @@
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
                         "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob,variables('uniqueStorageAccountContainerName'),'/','rdsh-',copyindex(),'-os-disk.vhd')]"
+                        "managedDisk": {
+                            "storageAccountType":"Standard_LRS"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
@@ -661,6 +667,12 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('rdshVmName'), padLeft(add(copyindex(), 1), 2, '0'), variables('networkNameSuffix')))]"
                         }
                     ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')))]"
+                    }
                 }
             },
             "resources": [
@@ -722,8 +734,8 @@
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
                         "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob,variables('uniqueStorageAccountContainerName'),'/','cb-vm-os-disk.vhd')]"
+                        "managedDisk": {
+                            "storageAccountType":"Standard_LRS"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
@@ -735,6 +747,12 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('brokerNicName'))]"
                         }
                     ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')))]"
+                    }
                 }
             }
         },
