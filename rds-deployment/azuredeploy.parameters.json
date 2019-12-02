@@ -15,7 +15,7 @@
       "value": "{enter_unique_external_fqdn_prefix_here (example:%resourceGroupName%)}"
     },
     "domainName": {
-      "value": "contoso.com"
+      "value": "contosof.com"
     },
     "imageSKU": {
       "value": "2016-Datacenter"
