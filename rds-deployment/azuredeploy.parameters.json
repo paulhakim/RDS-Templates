@@ -9,13 +9,13 @@
       "value": "GEN-PASSWORD"
     },
     "adminUsername": {
-      "value": "cloudadmin1"
+      "value": "cloudadmin"
     },
     "dnsLabelPrefix": {
       "value": "{enter_unique_external_fqdn_prefix_here (example:%resourceGroupName%)}"
     },
     "domainName": {
-      "value": "contosof.com"
+      "value": "contoso.com"
     },
     "imageSKU": {
       "value": "2016-Datacenter"
