@@ -117,7 +117,6 @@
             "sku": "[parameters('imageSKU')]",
             "version": "latest"
         },
-        "adStorageAccountName": "[tolower(concat('adsa',uniqueString(resourceGroup().id)))]",
         "storageAccountName": "[tolower(concat('rdsa',uniqueString(resourceGroup().id)))]",
         "storageAccountType": "Standard_LRS",
         "uniqueStorageAccountContainerName": "[tolower(concat('sc', uniqueString(resourceGroup().id)))]"
@@ -351,21 +350,12 @@
             }
         },
         {
-            "apiVersion": "2015-06-15",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('adStorageAccountName')]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "[variables('storageAccountType')]"
-            }
-        },
-        {
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[variables('adVm').name]",
             "apiVersion": "2016-04-30-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', variables('adStorageAccountName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', variables('StorageAccountName'))]",
                 "[resourceId('Microsoft.Network/networkInterfaces', variables('adVm').nic)]"
             ],
             "properties": {
@@ -381,19 +371,17 @@
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
                         "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('adStorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob,variables('uniqueStorageAccountContainerName'),'/', concat(variables('adVm').name,'-os-disk.vhd'))]"
+                        "managedDisk": {
+                            "storageAccountType":"Standard_LRS"
                         },
-                        "caching": "ReadWrite",
                         "createOption": "FromImage"
                     },
                     "dataDisks": [
                         {
                             "name": "datadisk",
-                            "vhd": {
-                                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('adStorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob,variables('uniqueStorageAccountContainerName'),'/', concat(variables('adVm').name,'-data-disk.vhd'))]"
+                            "managedDisk": {
+                                "storageAccountType":"Standard_LRS"
                             },
-                            "caching": "None",
                             "createOption": "Empty",
                             "diskSizeGB": "100",
                             "lun": 0
@@ -406,6 +394,12 @@
                             "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('adVm').nic)]"
                         }
                     ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+                    }
                 }
             },
             "resources": [
