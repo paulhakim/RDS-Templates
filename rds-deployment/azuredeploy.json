@@ -197,7 +197,7 @@
             "properties": {
                 "platformFaultDomainCount": 2,
                 "platformUpdateDomainCount": 2,
-                "managed": false
+                "managed": true
             }
         },
         {
@@ -212,7 +212,7 @@
             "properties": {
                 "platformFaultDomainCount": 2,
                 "platformUpdateDomainCount": 2,
-                "managed": false
+                "managed": true,
             }
         },
         {
@@ -227,7 +227,7 @@
             "properties": {
                 "platformFaultDomainCount": 2,
                 "platformUpdateDomainCount": 2,
-                "managed": false
+                "managed": true
             }
         },
         {
