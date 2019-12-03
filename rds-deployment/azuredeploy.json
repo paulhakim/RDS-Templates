@@ -570,7 +570,7 @@
                 "storageProfile": {
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
-                        "name": "osdisk",
+                        "name": "[concat(toLower(variables('gatewayVmName')),'-osdisk')]",
                         "managedDisk": {
                             "storageAccountType":"Standard_LRS"
                         },
@@ -654,7 +654,7 @@
                 "storageProfile": {
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
-                        "name": "osdisk",
+                        "name": "[concat(variables('rdshVmName'), padLeft(add(copyindex(), 1), 2, '0')), '-osdisk']",
                         "managedDisk": {
                             "storageAccountType":"Standard_LRS"
                         },
@@ -734,7 +734,7 @@
                 "storageProfile": {
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
-                        "name": "osdisk",
+                        "name": "[concat(toLower(variables('brokerVmName')),'-osdisk')]",
                         "managedDisk": {
                             "storageAccountType":"Standard_LRS"
                         },
