@@ -654,7 +654,7 @@
                 "storageProfile": {
                     "imageReference": "[variables('imageReference')]",
                     "osDisk": {
-                        "name": "[concat(variables('rdshVmName'), padLeft(add(copyindex(), 1), 2, '0')), '-osdisk']",
+                        "name": "[concat(variables('rdshVmName'), padLeft(add(copyindex(), 1), 2, '0'), '-osdisk')]",
                         "managedDisk": {
                             "storageAccountType":"Standard_LRS"
                         },
