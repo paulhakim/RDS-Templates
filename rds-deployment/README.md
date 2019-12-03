@@ -11,10 +11,11 @@ This template deploys the following resources:
 The template will deploy DC, join all virtual machines to the domain, and configure RDS roles in the deployment.
 
 Click the button below to deploy
-
+<!--
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Frds-deployment%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+-->
 <a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fpaulhakim%2FRDS-Templates%2Fmaster%2Frds-deployment%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/AzureGov.png"/>
 </a>
