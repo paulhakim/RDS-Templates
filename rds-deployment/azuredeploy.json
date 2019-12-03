@@ -399,7 +399,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": "true",
-                        "storageUri": "[concat('http://',parameters('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
+                        "storageUri": "[concat('http://',variables('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
                     }
                 }
             },
@@ -588,7 +588,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": "true",
-                        "storageUri": "[concat('http://',parameters('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
+                        "storageUri": "[concat('http://',variables('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
                     }
                 }
             },
@@ -672,7 +672,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": "true",
-                        "storageUri": "[concat('http://',parameters('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
+                        "storageUri": "[concat('http://',variables('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
                     }
                 }
             },
@@ -752,7 +752,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": "true",
-                        "storageUri": "[concat('http://',parameters('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
+                        "storageUri": "[concat('http://',variables('StorageAccountName'),'.', variables('blobStorageEndpoint'))]"
                     }
                 }
             }
